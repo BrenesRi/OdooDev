@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!-- Municipalidad menu superior -->
+    <menuitem id="menu_superior" name="Prueba" web_icon="pdi_prueba,static/description/icon.png" />
+
+<!-- Usos de Suelo -->
+
+    <record model="ir.actions.act_window" id="accion_ventana_prueba" >
+        <field name="name">Usos de Suelo</field>
+        <field name="res_model">prueba</field>
+        <field name="view_mode">tree,form</field>
+        <field name="limit">50</field>
+        <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear un nuevo registro de prueba
+                </p>
+        </field>
+    </record>
+
+
+    <menuitem 
+        id="menu_prueba"
+        name="Usos de Suelo"
+        parent="menu_superior"
+        sequence="1"
+        action="accion_ventana_prueba"
+    />
+
+<!-- MENUS DE ACCION
+
+   <record model="ir.actions.server" id="accion_actualizar_fecha_traslado">
+       <field name="name">Marcar Traslado</field>
+       <field name="model_id" ref="pdi_prueba.model_pdi_prueba"/>
+       <field name="binding_model_id" ref="pdi_prueba.model_pdi_prueba"/>
+       <field name="state">code</field>
+       <field name="binding_view_types">list</field>
+       <field name="code">
+           action = records.marcar_traslado()
+       </field>
+   </record>
+   -->
+</odoo>
