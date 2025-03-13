@@ -54,6 +54,5 @@
 
     <menuitem id="menu_estudiantes_list" name="Lista de Estudiantes" parent="menu_estudiantes" action="Estudiante_action"/>
 
-
     </data>
 </odoo>
