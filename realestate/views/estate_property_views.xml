@@ -55,11 +55,13 @@
                 <field name="garden_orientation" />
               </group>
             </page>
-             <page string="Offers">
+              <page string="Offers">
               <field name="offer_ids">
                 <tree>
                   <field name="price" />
                   <field name="partner_id" />
+                  <field name="validity" />
+                  <field name="date_deadline" />
                   <field name="status" />
                 </tree>
               </field>
