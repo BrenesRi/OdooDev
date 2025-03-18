@@ -1,4 +1,0 @@
-perm_read,perm_write,perm_create,perm_unlink,group_id:id,model_id:id,id,name
-1,0,0,0,grupo_consulta,model_prueba,acceso_consulta_prueba,acceso_consulta_prueba
-1,1,1,0,grupo_edicion,model_prueba,acceso_edicion_prueba,acceso_edicion_prueba
-1,1,1,1,grupo_soporte,model_prueba,acceso_soporte_prueba,acceso_soporte_prueba
