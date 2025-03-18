@@ -1,6 +1,12 @@
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from odoo import api, fields, models
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError, ValidationError
+from odoo.tools.float_utils import float_compare, float_is_zero
+import logging
+_logger = logging.getLogger(__name__)
+
 
 class Property(models.Model):
   _name = "estate.property"
@@ -59,3 +65,19 @@ class Property(models.Model):
     else:
       self.garden_area = 0
       self.garden_orientation = ''
+
+  def sell_property(self):
+    _logger.info('sell property from parent')
+    for record in self:
+        if record.state == "Canceled":
+            raise UserError(_("You can't set Caceled property as sold"))
+        else:
+            record.state = "Sold"
+    return True
+  def cancel_property(self):
+    for record in self:
+        if record.state == "Sold":
+            raise UserError(_("You can't set Sold property as Canceled"))
+        else:
+            record.state = "Canceled"
+    return True

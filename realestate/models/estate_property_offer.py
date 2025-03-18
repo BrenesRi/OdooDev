@@ -47,3 +47,15 @@ class PropertyOffer(models.Model):
             start = fields.Datetime.from_string(record.create_date)
             end = fields.Datetime.from_string(record.date_deadline)
             record.validity = (end - start).days + 1
+
+    def action_accept(self):
+        for line in  self:
+            line.property_id.selling_price = line.price
+            line.property_id.buyer = line.partner_id
+            line.property_id.state = "Offer Received"
+            line.status = "Accepted"
+    def action_refuse(self):
+        for line in  self:
+            line.property_id.selling_price = 0
+            line.property_id.buyer = None
+            line.status = "Refused"
